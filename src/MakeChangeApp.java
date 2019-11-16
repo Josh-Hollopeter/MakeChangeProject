@@ -1,8 +1,16 @@
 
+import java.util.Scanner;
+
 public class MakeChangeApp {
+	static Scanner input = new Scanner(System.in);
 
 	public static void main(String[] args) {
-		double cashTendered = 20.54;
+		getChange();
+
+	}
+
+	public static void getChange() {
+		double cashTendered = cashRegister();
 		int thousands = 0;
 		int hundreds = 0;
 		int fifties = 0;
@@ -18,7 +26,7 @@ public class MakeChangeApp {
 //		System.out.println(cashTendered);
 		int[] cash = new int[6];
 
-		int amountDue = (int) ((cashTendered +0.001) * 100);
+		int amountDue = (int) ((cashTendered + 0.001) * 100);
 		for (int j = 0; j < cash.length; j++) {
 			cash[j] = (int) (amountDue % 10);
 			amountDue = amountDue / 10;
@@ -70,36 +78,19 @@ public class MakeChangeApp {
 				change -= 10;
 				System.out.println(change);
 				continue;
-			}
-			else if(change >= 5) {
+			} else if (change >= 5) {
 				System.out.println(change);
 				nickles += 1;
 				change -= 5;
 				continue;
-				
-			}
-			else if(change > 0) {
+
+			} else if (change > 0) {
 				pennies += 1;
 				change -= 1;
 				continue;
 			}
 			break;
 		}
-
-//		System.out.println("1: " +cash[1]);
-//		while (cash[1] > 0 ) {
-//			dimes += 1;
-//			cash[1] -= 1;
-//		}
-//		System.out.println("0: " +cash[0]);
-//		while (cash[0] >= 5) {
-//			nickles += 1;
-//			cash[0] -= 1;
-//		}
-//		while (cash[0] > 0) {
-//			pennies += 1;
-//			cash[0] -= 1;
-//		}
 
 		System.out.println("thousand dollar bills: " + thousands);
 		System.out.println("hundred dollar bills: " + hundreds);
@@ -114,4 +105,29 @@ public class MakeChangeApp {
 		System.out.println("pennies: " + pennies);
 
 	}
+
+	public static double cashRegister() {
+
+		while (true) {
+			System.out.println("How much was the purchase");
+			double amount = input.nextDouble();
+
+			System.out.println("How much was tendered");
+			double tendered = input.nextDouble();
+
+			if (amount == tendered) {
+				System.out.println("You got exact change partner");
+				System.out.println("Till next time");
+				System.exit(0);
+			} else if (amount > tendered) {
+				System.out.println("That ain't enough money for yer purchase, try again");
+				continue;
+			}
+			else {
+				return tendered-amount;
+			}
+
+		}
+	}
+
 }
