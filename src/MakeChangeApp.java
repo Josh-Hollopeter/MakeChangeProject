@@ -34,17 +34,17 @@ public class MakeChangeApp {
 		String changeConvert = cash[1] + "" + cash[0];
 		int change = Integer.parseInt(changeConvert);
 //			System.out.println(cash[3]);
-		while (cash[5] % 10 != 0) {
+		while (cash[5] > 0) {
 			thousands += 1;
 			cash[5] -= 1;
 
 		}
-		while (cash[4] % 10 != 0) {
+		while (cash[4] > 0) {
 			hundreds += 1;
 			cash[4] -= 1;
 
 		}
-		while (cash[3] % 10 != 0 && cash[3] >= 5) {
+		while (cash[3] >= 5) {
 			fifties += 1;
 			cash[3] -= 5;
 
@@ -114,7 +114,10 @@ public class MakeChangeApp {
 
 			System.out.println("How much was tendered");
 			double tendered = input.nextDouble();
-
+			if(tendered > 100000 || amount > 100000) {
+				System.out.println("You crazy er sumthin, we can't break that. Try something smaller");
+				continue;
+			}
 			if (amount == tendered) {
 				System.out.println("You got exact change partner");
 				System.out.println("Till next time");
