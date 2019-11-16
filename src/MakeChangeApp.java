@@ -23,17 +23,18 @@ public class MakeChangeApp {
 		int nickles = 0;
 		int pennies = 0;
 
-//		System.out.println(cashTendered);
 		int[] cash = new int[6];
 
 		int amountDue = (int) ((cashTendered + 0.001) * 100);
+
 		for (int j = 0; j < cash.length; j++) {
 			cash[j] = (int) (amountDue % 10);
 			amountDue = amountDue / 10;
 		}
+
 		String changeConvert = cash[1] + "" + cash[0];
 		int change = Integer.parseInt(changeConvert);
-//			System.out.println(cash[3]);
+
 		while (cash[5] > 0) {
 			thousands += 1;
 			cash[5] -= 1;
@@ -71,7 +72,6 @@ public class MakeChangeApp {
 			if (change >= 25) {
 				quarters += 1;
 				change -= 25;
-//				System.out.println(change);
 				continue;
 			} else if (change >= 10) {
 				dimes += 1;
@@ -114,7 +114,7 @@ public class MakeChangeApp {
 
 			System.out.println("How much was tendered");
 			double tendered = input.nextDouble();
-			if(tendered > 100000 || amount > 100000) {
+			if (tendered > 100000 || amount > 100000) {
 				System.out.println("You crazy er sumthin, we can't break that. Try something smaller");
 				continue;
 			}
@@ -125,9 +125,8 @@ public class MakeChangeApp {
 			} else if (amount > tendered) {
 				System.out.println("That ain't enough money for yer purchase, try again");
 				continue;
-			}
-			else {
-				return tendered-amount;
+			} else {
+				return tendered - amount;
 			}
 
 		}
