@@ -11,7 +11,6 @@ public class MakeChangeApp {
 
 	public static void getChange() {
 		double cashTendered = cashRegister();
-		int thousands = 0;
 		int hundreds = 0;
 		int fifties = 0;
 		int twenties = 0;
@@ -35,8 +34,8 @@ public class MakeChangeApp {
 		String changeConvert = cash[1] + "" + cash[0];
 		int change = Integer.parseInt(changeConvert);
 
-		thousands = cash[5];
-		hundreds = cash[4];
+		hundreds = cash[5] * 10;
+		hundreds += cash[4];
 		while (cash[3] >= 5) {
 			fifties += 1;
 			cash[3] -= 5;
@@ -66,8 +65,6 @@ public class MakeChangeApp {
 		change %= 5;
 		pennies = change;
 
-		if (thousands > 0)
-			System.out.println("Thousand dollar bills: " + thousands);
 		if (hundreds > 0)
 			System.out.println("Hundred dollar bills: " + hundreds);
 		if (fifties > 0)
