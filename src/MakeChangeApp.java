@@ -35,16 +35,8 @@ public class MakeChangeApp {
 		String changeConvert = cash[1] + "" + cash[0];
 		int change = Integer.parseInt(changeConvert);
 
-		while (cash[5] > 0) {
-			thousands += 1;
-			cash[5] -= 1;
-
-		}
-		while (cash[4] > 0) {
-			hundreds += 1;
-			cash[4] -= 1;
-
-		}
+		thousands = cash[5];
+		hundreds = cash[4];
 		while (cash[3] >= 5) {
 			fifties += 1;
 			cash[3] -= 5;
@@ -64,33 +56,15 @@ public class MakeChangeApp {
 			cash[2] -= 5;
 
 		}
-		while (cash[2] > 0) {
-			ones += 1;
-			cash[2] -= 1;
-		}
-		while (true) {
-			if (change >= 25) {
-				quarters += 1;
-				change -= 25;
-				continue;
-			} else if (change >= 10) {
-				dimes += 1;
-				change -= 10;
-				System.out.println(change);
-				continue;
-			} else if (change >= 5) {
-				System.out.println(change);
-				nickles += 1;
-				change -= 5;
-				continue;
 
-			} else if (change > 0) {
-				pennies += 1;
-				change -= 1;
-				continue;
-			}
-			break;
-		}
+		ones = cash[2];
+		quarters = change / 25;
+		change = change % 25;
+		dimes = change / 10;
+		change %= 10;
+		nickles = change / 5;
+		change %= 5;
+		pennies = change;
 
 		System.out.println("thousand dollar bills: " + thousands);
 		System.out.println("hundred dollar bills: " + hundreds);
@@ -114,18 +88,19 @@ public class MakeChangeApp {
 
 			System.out.println("How much was tendered");
 			double tendered = input.nextDouble();
-			if (tendered > 100000 || amount > 100000) {
-				System.out.println("You crazy er sumthin, we can't break that. Try something smaller");
-				continue;
-			}
 			if (amount == tendered) {
 				System.out.println("You got exact change partner");
 				System.out.println("Till next time");
 				System.exit(0);
+			}
+			if (tendered > 100000 || amount > 10000) {
+				System.out.println("You crazy er sumthin, we can't break that. Try something smaller");
+				continue;
 			} else if (amount > tendered) {
 				System.out.println("That ain't enough money for yer purchase, try again");
 				continue;
 			} else {
+				System.out.printf("Change due: %.2f\n", (tendered - amount));
 				return tendered - amount;
 			}
 
