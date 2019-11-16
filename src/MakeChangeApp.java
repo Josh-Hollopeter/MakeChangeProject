@@ -66,17 +66,28 @@ public class MakeChangeApp {
 		change %= 5;
 		pennies = change;
 
-		System.out.println("thousand dollar bills: " + thousands);
-		System.out.println("hundred dollar bills: " + hundreds);
-		System.out.println("fifties: " + fifties);
-		System.out.println("twenties: " + twenties);
-		System.out.println("tens: " + tens);
-		System.out.println("fives: " + fives);
-		System.out.println("ones: " + ones);
-		System.out.println("quarters: " + quarters);
-		System.out.println("dimes: " + dimes);
-		System.out.println("nickles: " + nickles);
-		System.out.println("pennies: " + pennies);
+		if (thousands > 0)
+			System.out.println("Thousand dollar bills: " + thousands);
+		if (hundreds > 0)
+			System.out.println("Hundred dollar bills: " + hundreds);
+		if (fifties > 0)
+			System.out.println("Fifties: " + fifties);
+		if (twenties > 0)
+			System.out.println("Twenties: " + twenties);
+		if (tens > 0)
+			System.out.println("Tens: " + tens);
+		if (fives > 0)
+			System.out.println("Fives: " + fives);
+		if (ones > 0)
+			System.out.println("Ones: " + ones);
+		if (quarters > 0)
+			System.out.println("Quarters: " + quarters);
+		if (dimes > 0)
+			System.out.println("Dimes: " + dimes);
+		if (nickles > 0)
+			System.out.println("Nickles: " + nickles);
+		if (pennies > 0)
+			System.out.println("Pennies: " + pennies);
 
 	}
 
