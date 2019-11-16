@@ -2,14 +2,39 @@
 ## Make Change Project
 
 ### Overview
++ This is a program designed to handle correct change.
++ It basically has the same functionality as the 
+make change portion of a cash register.
 
 ### Concepts
-+ Loops
++ For loops
++ Arrays
++ While loops
++ If statements
++ Static Method
++ String Concatenation
++ doubles
++ integers
++ casting
++ Scanner
++ break
++ continue
++ import
++ booleans
+
 
 
 ### Technologies Used
 + Java
++ Eclipse
++ Markdown
++ Git
++ Terminal
++ Atom
 
 ### Lessons Learned
++ No good way to put two different data types into an array
 
 ### Program Operation
+
++ Follow on screen prompts

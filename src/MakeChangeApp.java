@@ -99,8 +99,8 @@ public class MakeChangeApp {
 				System.out.println("Till next time");
 				System.exit(0);
 			}
-			if (tendered > 100000 || amount > 10000) {
-				System.out.println("You crazy er sumthin, we can't break that. Try something smaller");
+			if (tendered > 100000 || amount > 10000 || amount < 0 || tendered < 0) {
+				System.out.println("You crazy er sumthin? Try again");
 				continue;
 			} else if (amount > tendered) {
 				System.out.println("That ain't enough money for yer purchase, try again");
