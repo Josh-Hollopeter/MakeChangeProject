@@ -36,24 +36,22 @@ public class MakeChangeApp {
 
 		hundreds = cash[5] * 10;
 		hundreds += cash[4];
+
 		while (cash[3] >= 5) {
 			fifties += 1;
 			cash[3] -= 5;
-
 		}
-		while (cash[3] % 10 != 0 && cash[3] >= 2) {
+		while (cash[3] >= 2) {
 			twenties += 1;
 			cash[3] -= 2;
-
 		}
-		while (cash[3] % 10 != 0) {
+		while (cash[3] > 0) {
 			tens += 1;
 			cash[3] -= 1;
 		}
 		while (cash[2] >= 5) {
 			fives += 1;
 			cash[2] -= 5;
-
 		}
 
 		ones = cash[2];
