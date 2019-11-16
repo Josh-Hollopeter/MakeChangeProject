@@ -2,7 +2,7 @@
 public class MakeChangeApp {
 
 	public static void main(String[] args) {
-		double cashTendered = 1096.99;
+		double cashTendered = 20.54;
 		int thousands = 0;
 		int hundreds = 0;
 		int fifties = 0;
@@ -14,11 +14,11 @@ public class MakeChangeApp {
 		int dimes = 0;
 		int nickles = 0;
 		int pennies = 0;
-	
+
 //		System.out.println(cashTendered);
 		int[] cash = new int[6];
-	
-		int amountDue = (int) (cashTendered * 100);
+
+		int amountDue = (int) ((cashTendered +0.001) * 100);
 		for (int j = 0; j < cash.length; j++) {
 			cash[j] = (int) (amountDue % 10);
 			amountDue = amountDue / 10;
@@ -59,22 +59,33 @@ public class MakeChangeApp {
 			ones += 1;
 			cash[2] -= 1;
 		}
-		System.out.println(change);
 		while (true) {
-			if(change > 25) {
+			if (change >= 25) {
 				quarters += 1;
 				change -= 25;
+//				System.out.println(change);
+				continue;
+			} else if (change >= 10) {
+				dimes += 1;
+				change -= 10;
 				System.out.println(change);
 				continue;
-				}
-			
+			}
+			else if(change >= 5) {
+				System.out.println(change);
+				nickles += 1;
+				change -= 5;
+				continue;
+				
+			}
+			else if(change > 0) {
+				pennies += 1;
+				change -= 1;
+				continue;
+			}
 			break;
 		}
-			
-			
-		
-		
-		
+
 //		System.out.println("1: " +cash[1]);
 //		while (cash[1] > 0 ) {
 //			dimes += 1;
@@ -101,6 +112,6 @@ public class MakeChangeApp {
 		System.out.println("dimes: " + dimes);
 		System.out.println("nickles: " + nickles);
 		System.out.println("pennies: " + pennies);
-	
+
 	}
 }
