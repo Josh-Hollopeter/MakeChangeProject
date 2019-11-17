@@ -99,7 +99,7 @@ public class MakeChangeApp {
 				System.out.println("Till next time");
 				System.exit(0);
 			}
-			if (tendered > 100000 || amount > 10000 || amount < 0 || tendered < 0) {
+			if ((tendered - amount) > 9999.99 || amount < 0 || tendered < 0) {
 				System.out.println("You crazy er sumthin? Try again");
 				continue;
 			} else if (amount > tendered) {
