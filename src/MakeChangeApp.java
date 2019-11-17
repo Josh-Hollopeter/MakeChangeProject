@@ -34,10 +34,7 @@ public class MakeChangeApp {
 		String changeConvert = cash[1] + "" + cash[0];
 		int change = Integer.parseInt(changeConvert);
 
-		hundreds = cash[5] * 10;
-		hundreds += cash[4];
-
-		while (cash[3] >= 5) {
+		if (cash[3] >= 5) {
 			fifties += 1;
 			cash[3] -= 5;
 		}
@@ -45,15 +42,14 @@ public class MakeChangeApp {
 			twenties += 1;
 			cash[3] -= 2;
 		}
-		while (cash[3] > 0) {
-			tens += 1;
-			cash[3] -= 1;
-		}
-		while (cash[2] >= 5) {
+		if (cash[2] >= 5) {
 			fives += 1;
 			cash[2] -= 5;
 		}
-
+		
+		hundreds = cash[5] * 10;
+		hundreds += cash[4];
+		tens = cash[3];
 		ones = cash[2];
 		quarters = change / 25;
 		change = change % 25;
@@ -100,7 +96,7 @@ public class MakeChangeApp {
 				System.exit(0);
 			}
 			if ((tendered - amount) > 9999.99 || amount < 0 || tendered < 0) {
-				System.out.println("You crazy er sumthin? Try again");
+				System.out.println("Amount too high or a negative number was entered. Try again");
 				continue;
 			} else if (amount > tendered) {
 				System.out.println("That ain't enough money for yer purchase, try again");
