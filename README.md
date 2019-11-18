@@ -39,3 +39,4 @@ make change portion of a cash register.
 
 + There is commented code if denominations are limited to 20$ bills
 + Follow on screen prompts
++ Added alternate file with different logic.
