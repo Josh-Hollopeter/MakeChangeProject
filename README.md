@@ -37,4 +37,5 @@ make change portion of a cash register.
 
 ### Program Operation
 
++ There is commented code if denominations are limited to 20$ bills
 + Follow on screen prompts

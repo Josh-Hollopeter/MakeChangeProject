@@ -25,7 +25,8 @@ public class MakeChangeApp {
 		int[] cash = new int[6];
 
 		int amountDue = (int) ((cashTendered + 0.001) * 100);
-
+//		twenties = amountDue / 2000; //If only up to twenties are allowed uncomment these two lines.
+//		amountDue %= 2000;
 		for (int j = 0; j < cash.length; j++) {
 			cash[j] = (int) (amountDue % 10);
 			amountDue = amountDue / 10;
@@ -34,8 +35,8 @@ public class MakeChangeApp {
 		String changeConvert = cash[1] + "" + cash[0];
 		int change = Integer.parseInt(changeConvert);
 
-		if (cash[3] >= 5) {
-			fifties += 1;
+		if (cash[3] >= 5) {    
+			fifties += 1;		
 			cash[3] -= 5;
 		}
 		while (cash[3] >= 2) {
